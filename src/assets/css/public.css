@@ -1,0 +1,199 @@
+/*+---------------------------------------------------------------------+*/
+/*+                      author：赵金福 - 赵鑫                           +*/
+/*+                      Creation time：2020/05/15                      +*/
+/*+                      Effect：初始化css样式，规定开发文本              +*/
+/*+---------------------------------------------------------------------+*/
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+	/*blockquote  之间的所有文本都会从常规文本中分离出来，经常会在左、右两边进行缩进（增加外边距），而且有时会使用斜体。也就是说，块引用拥有它们自己的空间。*/
+	/*pre         元素可定义预格式化的文本。被包围在 pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体,常见应用就是用来表示计算机的源代码。*/
+	/*fieldset	      元素可将表单内的相关元素分组。标签将表单内容的一部分打包,生成一组相关表单的字段,当一组表单元素放到 <fieldset> 标签内时，浏览器会以特殊方式来显示它们，它们可能有特殊的边界、3D 效果,或者甚至可创建一个子表单来处理这些元素, 标签没有必需的或唯一的属性。*/
+	/*legend      组合表单中的相关元素, fieldset下的组表单的头部,在legend中包裹*/
+	/*textarea    标签定义多行的文本输入控件,文本区中可容纳无限数量的文本，其中的文本的默认字体是等宽字体（通常是 Courier）。可以通过 cols 和 rows 属性来规定 textarea 的尺寸，不过更好的办法是使用 CSS 的 height 和 width 属性。注释：在文本输入区内的文本行间，用 "%OD%OA" （回车/换行）进行分隔。*/
+	margin: 0;
+	/*外边距*/
+	padding: 0;
+	/*内填充*/
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+	/*优先使用微软雅黑*/
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font: 12px/1.5tahoma, arial, \5b8b\4f53;
+	/*注释: tahoma      是种非常圆滑的字体。这个字体比较均衡，中英文混排显示时，不会出现中英文不对齐的状态;
+		 	  12px/1.5            是字体大小/字体行高 字体格式;
+		 	  arial       是一套随同多套微软应用软件所分发的无衬线体TrueType字型;
+		 	  \5b8b\4f53      是 “宋体”;*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	/*字号100%*/
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+	font-style: normal;
+	/* 默认值。浏览器显示一个标准的字体样式*/
+	/*address   标签定义文档或文章的作者/拥有者的联系信息(成斜体状)。元素位于 <body> 元素内，则它表示文档联系信息。元素位于 <article> 元素内，则它表示文章的联系信息。标签不应该用于描述通讯地址，除非它是联系信息的一部分。 元素通常连同其他信息被包含在 <footer> 元素中。*/
+	/*cite      标签通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。按照惯例，引用的文本将以斜体显示。用 <cite> 标签把指向其他文档的引用分离出来，尤其是分离那些传统媒体中的文档，如书籍、杂志、期刊，等等。如果引用的这些文档有联机版本，还应该把引用包括在一个 <a> 标签中，从而把一个超链接指向该联机版本。
+		       	<cite> 标签还有一个隐藏的功能：它可以使你或者其他人从文档中自动摘录参考书目。我们可以很容易地想象一个浏览器，它能够自动整理引用表格，并把它们作为脚注或者独立的文档来显示。<cite> 标签的语义已经远远超过了改变它所包含的文本外观的作用；它使浏览器能够以各种实用的方式来向用户表达文档的内容。*/
+	/*dfn       标签可标记那些对特殊术语或短语的定义。现在流行的浏览器通常用斜体来显示 <dfn> 中的文本。将来，<dfn> 还可能有助于创建文档的索引或术语表。*/
+	/*em        标签告诉浏览器把其中的文本表示为强调的内容。对于所有浏览器来说，这意味着要把这段文字用斜体来显示。*/
+	/*var       标签表示变量的名称，或者由用户提供的值。这个标签经常与 <code> 和 <pre> 标签一起使用，用来显示计算机编程代码范例及类似方面的特定元素。用 <var> 标签标记的文本通常显示为斜体。就像其他与计算机编程和文档相关的标签一样，<var>,而且将来某些自动系统还可以利用这些恰当的标签，从你的文档中提取信息以及文档中提到的有用参数*/
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: couriernew, courier, monospace;
+	/*别人访问网页时，先匹配他机器上有无courier new字体，有就显示为这个字体，没有则匹配下一个typewriter字体，以此类推*/
+	/*code   标签用于表示计算机源代码或者其他机器可以阅读的文本内容。标签通常只是把文本变成等宽字体，但它暗示着这段文本是源程序代码。将来的浏览器有可能会加入其他显示效果*/
+	/*kbd    标签定义键盘文本,它用来表示文本是从键盘上键入的。*/
+	/*samp   标签表示一段用户应该对其没有什么其他解释的文本字符。要从正常的上下文抽取这些字符时，通常要用到这个标签。*/
+}
+
+small {
+	font-size: 14px;
+	/*呈现小号字体*/
+}
+
+ul,
+ol {
+	list-style: none;
+	/*去掉无序列表个有序列表的样式*/
+}
+
+ul,
+ol li {
+	text-align: center;
+	/*内中文字居中*/
+	list-style: none;
+}
+
+
+/*width:auto;内文本文字自动按文字宽度排列,因情况而定*/
+
+a {
+	text-decoration: none;
+	/*文字修饰为无；清除超链接的默认下划线*/
+}
+
+a:hover {
+	text-decoration: underline;
+	/*元素的文本修饰,定义文本下的一条线*/
+	text-decoration: none;
+	/*默认。定义标准的文本*/
+}
+a:focus {
+	text-decoration: none;
+		/*文字修饰为无；清除超链接的默认下划线*/
+}
+sup {
+	vertical-align: text-top;
+	/*上标,把元素的顶端与父元素字体的顶端对齐*/
+}
+
+sub {
+	vertical-align: text-bottom;
+	/* 下标,把元素的底端与父元素字体的底端对齐*/
+}
+
+legend {
+	color: #000;
+}
+
+
+/*意思同上+属性自己理解*/
+
+fieldset,
+img {
+	border: 0;
+}
+
+
+/*意思同上+属性自己理解*/
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+
+/*意思同上+属性自己理解*/
+
+table {
+	border-collapse: collapse;
+	/*边框会合并为一个单一的边框*/
+	border-spacing: 0;
+	/*属性设置相邻单元格的边框间的距离(仅用于“边框分离”模式)*/
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+	display: none;
+	/*--清除谷歌浏览器下的 search 叉号*/
+	-webkit-appearance: none;
+	/*是用来改变按钮和其他控件的外观，使其外观类似于原生控件。*/
+}
+
+/*选中的文本的样式*/
+/* ::selection {
+    
+} */
+
+/*小于(多大)-样式处理*/
+@media only screen and (max-width: 1360px) {
+    body,.el-dialog__wrapper{
+		width: 1360px;
+	}		 
+}
+
+/*大于(多大)-样式处理*/
+@media only screen and (min-width: 1400px) {
+    
+}
+
+/*input[type=search]::-ms-clear{display: none;}清除IE下的 search 叉号*/
+
+body {
+	font-size:14px; 
+}
