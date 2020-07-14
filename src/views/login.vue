@@ -158,7 +158,9 @@ export default class login extends Vue {
     this.ghyzm();
   }
   // 初始化data
-  created() {}
+  created() {
+    console.log('%c★cauthor：赵金福 ★ QQ：931571231 ★ 微信/手机号：18332521721 ★ startDate：2020-07-03','color:red');
+  }
 }
 // // 初始化数据
 </script>

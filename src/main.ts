@@ -37,8 +37,8 @@ import httpApi from './assets/js/api'
 Vue.prototype.$httpApi = httpApi
 
 // 引用封装的方法 - 函数
-import encapsulationFunction from './assets/js/requireFunction'
-Vue.prototype.$encapsulationFunction = encapsulationFunction
+// import encapsulationFunction from './assets/js/requireFunction'
+// Vue.prototype.$encapsulationFunction = encapsulationFunction
 
 // 公共的css
 import '../src/assets/css/public.css' 

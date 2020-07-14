@@ -1,36 +1,4 @@
 /**
-                    _ooOoo_
-                   o8888888o
-                  88\" . \"88
-                   (| -_- |)
-                  O\\  =  /O",
-               ____/`---'\\____",
-             .'  \\\\|     |//  `.",
-            /  \\\\|||  :  |||//  \\",
-           /  _||||| -:- |||||-  \\",
-           |   | \\\\\\  -  /// |   |",
-           | \\_|  ''\\---/''  |   |",
-           \\  .-\\__  `-`  ___/-. /",
-         ___`. .'  /--.--\\  `. . __",
-      .\"\" '<  `.___\\_<|>_/___.'  >'\"\".",
-     | | :  `- \\`.;`\\ _ /`;.`/ - ` : | |",
-     \\  \\ `-.   \\_ __\\ /__ _/   .-` /  /",
-======`-.____`-.___\\_____/___.-`____.-'======",
-                   `=---='",
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
-         佛祖保佑       永无BUG",
----------------------------------------------",
-佛曰:    ",
-     写字楼里写字间，写字间里程序员；",
-      程序人员写程序，又拿程序换酒钱。",
-      酒醒只在网上坐，酒醉还来网下眠；",
-      酒醉酒醒日复日，网上网下年复年。",
-      但愿老死电脑间，不愿鞠躬老板前；",
-      奔驰宝马贵者趣，公交自行程序员。",
-      别人笑我忒疯癫，我笑自己命太贱；",
-      不见满街漂亮妹，哪个归得程序员？",
-*/
-/**
  * @aaa 加法运算
  * @method 方法名
  * @param {number} num1 加数
@@ -39,7 +7,7 @@
  */
 import store from '../../store/index'
 
-export default {
+ const zString =  class zString {
 
     // 16进制转字符串
     hexCharCodeToStr(hexCharCodeStr: any) {
@@ -57,7 +25,7 @@ export default {
             resultStr.push(String.fromCharCode(curCharCode));
         }
         return resultStr.join("");
-    },
+    }
 
     // 16进制转2进制
     hex_to_bin(str: any) {
@@ -73,33 +41,33 @@ export default {
             }
         }
         return value
-    },
+    }
 
     // 截取字符串后几位
     getString1(str: string, num: number) {
         return str.substr(str.length - num);
-    },
+    }
 
     // 截取字符串前几位
     getString2(str: string, lengthNum: number) {
         return str.substr(0, lengthNum);
-    },
+    }
 
     // 截取数组第几位到第几位
     getString3(str: Array<any>, lengthNum: number) {
         return str.slice(0, lengthNum);
-    },
+    }
 
     // 数字数组变成字符串数字
     arrToString(arr: Array<number>) {
         return arr.join(',')
-    },
+    }
 
     // 去掉字符串中所有特殊符号
     specialSymbols(str: any) {
         let text = str.replace(/[&\|\\\*^%,:$#@\-]/g, "").replace(/\s*/g, "");
         return text;
-    },
+    }
 
     // 判定input的值限制只能是数(包括小数),小数点后几位
     oninput(num: any, limit: number): any {
@@ -130,7 +98,7 @@ export default {
         }
         return str
         // 用法：在input中 @keyup.native="data绑定的值 = oninput(data绑定的值,小数后几位)"
-    },
+    }
 
     // 判定input的值限制为正整数
     positiveInteger(num: any) {
@@ -139,7 +107,7 @@ export default {
         } else {
             return num;
         }
-    },
+    }
 
     // 删除对象属性值
     delObject(num: any) {
@@ -147,7 +115,7 @@ export default {
             delete num[key];
         }
         return num;
-    },
+    }
 
     // webSocket
     socket() {
@@ -171,7 +139,7 @@ export default {
             // 关闭Socket....
             // socket.close()
         };
-    },
+    }
 
     // 判断浏览器的类型
     myBrowser() {
@@ -215,13 +183,13 @@ export default {
             alert("Chrome")
             return "Chrome";
         }
-    },
+    }
 
     // 四舍五入 - （要被处理的数,保留几位小数）
     format45(val1: number, val2: number) {
         if (!val1) { return null }
         return Math.round(val1 * val2) / val2;
-    },
+    }
 
     // 两个数的算法 - 去除浮点
     delFNum(data1: number | any, data2: number | any, num: number, operationMode: string): number | any {
@@ -255,10 +223,12 @@ export default {
             }
         }
         return datas
-    },
+    }
 }
 
-// class name {
+
+
+// export class name {
 
 //     constructor(parameters) {
 
