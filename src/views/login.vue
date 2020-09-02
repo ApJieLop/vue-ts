@@ -160,13 +160,9 @@ export default class login extends Vue {
   }
   // 初始化data
   created() {
-    // console.log(zString.Format(1542274800000))
     
-    console.log((new Date(1542274800000) as any).Format('yy-MM-dd hh:mm:ss'))
-    console.log('%c★cauthor：赵金福 ★ QQ：931571231 ★ 微信/手机号：18332521721 ★ startDate：2020-07-03','color:red');
   }
 }
-// // 初始化数据
 </script>
   
 <style lang="less" scoped>

@@ -40,7 +40,7 @@ Date.prototype.Format = function (fmt: string): string {
 
 /**
 * @range Aggregate
-* @effect 其他方的集合 
+* @effect 其他方法的集合 
 */
 class Aggregate {
     /**
@@ -64,7 +64,7 @@ class Aggregate {
      * @param {hexCharCodeStr} 要被转的16进制数
      * @return {resultStr} 返回结果
     */
-    hexCharCodeToStr(hexCharCodeStr: string): string {
+    static hexCharCodeToStr(hexCharCodeStr: string): string {
         let trimedStr = hexCharCodeStr.trim();
         let rawStr = trimedStr.substr(0, 2).toLowerCase() === "0x" ? trimedStr.substr(2) : trimedStr;
         let len = rawStr.length;
@@ -87,7 +87,7 @@ class Aggregate {
      * @param {str} 16进制数
      * @return {value} 返回结果
     */
-    hex_to_bin(str: string): string {
+    static hex_to_bin(str: string): string {
         let hex_array = [{ key: 0, val: "0000" }, { key: 1, val: "0001" }, { key: 2, val: "0010" }, { key: 3, val: "0011" }, { key: 4, val: "0100" }, { key: 5, val: "0101" }, { key: 6, val: "0110" }, { key: 7, val: "0111" },
         { key: 8, val: "1000" }, { key: 9, val: "1001" }, { key: 'a', val: "1010" }, { key: 'b', val: "1011" }, { key: 'c', val: "1100" }, { key: 'd', val: "1101" }, { key: 'e', val: "1110" }, { key: 'f', val: "1111" }]
         let value = ""
@@ -108,7 +108,7 @@ class Aggregate {
      * @param {num} 原有object
      * @return {num} 返回被处理后原有objec
     */
-    delObject(num: any) {
+    static delObject(num: any) {
         for (var key in num) {
             delete num[key];
         }
@@ -121,7 +121,7 @@ class Aggregate {
      * @param {date} 要处理的数
      * @return {date} 返回被处理后的时间格式
      */
-    formatterDate(date: string): string | any {
+    static formatterDate(date: string): string | any {
         let result = new Date(date);
         return result;
     }
@@ -131,7 +131,7 @@ class Aggregate {
      * @effect 可以获取推过来的东西,前端可做监听来获取想要的
      * @param {name,value} 名字,值
     */
-    socket() {
+   static socket() {
         let socket = new WebSocket("ws://182.43.128.186:3255");
         // 打开Socket
         socket.onopen = function (event) {
@@ -159,7 +159,7 @@ class Aggregate {
      * @effect 判断浏览器的类型
      * @param {name,value} 名字,值
     */
-    myBrowser() {
+   static myBrowser() {
         var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
         var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器
         var isIE = userAgent.indexOf("compatible") > -1
@@ -195,6 +195,7 @@ class Aggregate {
         }
     }
 }
+
 /**
 * @range String
 * @effect 操作 - 字符串
@@ -206,7 +207,7 @@ class zString {
      * @param {str,lengthNum1,lengthNum2} 原有字符串,第几位,第几位
      * @return {str} 返回被处理后原有的字符串返回结果
      */
-    getString2(str: string, lengthNum1: number, lengthNum2: number) {
+    static getString2(str: string, lengthNum1: number, lengthNum2: number) {
         return str.substr(lengthNum1, lengthNum2);
     }
 
@@ -217,7 +218,7 @@ class zString {
      * @return {str} 返回被处理后原有的字符串返回结果
      * @usage 从：第一位~某一位;某一位~某一位;某一位到~最后一位
     */
-    specialSymbols(str: string): string {
+   static specialSymbols(str: string): string {
         let text = str.replace(/[&\|\\\*^%,:$#@\-]/g, "").replace(/\s*/g, "");
         return text;
     }
@@ -228,7 +229,7 @@ class zString {
     * @param {val,num} 原有字符串,查看字符串的第几位(init类型)
     * @return {val} 返回字符串的第几位是什么
     */
-    someoneString(val: string, num: any): string {
+   static someoneString(val: string, num: any): string {
         return val.charAt(num)
     }
 
@@ -239,13 +240,14 @@ class zString {
      * @return {val} 返回被处理后原有的字符串返回结果
      * @usage specialAppoint('该字符串','指定的字符*去除多个可用逗号分隔*')
     */
-    specialAppoint(val: string, characters: any): string {
+   static specialAppoint(val: string, characters: any): string {
         let reg = new RegExp(characters);
         val = val.replace(reg, "");
         return val
     }
 
 }
+
 /**
 * @range Array
 * @effect 操作 - 数组
@@ -258,7 +260,7 @@ class zArray {
      * @return {str} 返回被处理后原有的数组返回结果
      * @usage 从：第一位~某一位;某一位~某一位;某一位到~最后一位
      */
-    getString3(str: Array<any>, lengthNum1: number, lengthNum2: number) {
+    static getString3(str: Array<any>, lengthNum1: number, lengthNum2: number) {
         return str.slice(lengthNum1, lengthNum2);
     }
 
@@ -268,7 +270,7 @@ class zArray {
      * @param {arr} 原有数字数组
      * @return {arr} 返回被处理后原有的原有数字数组返回结果
     */
-    arrToString(arr: Array<number>) {
+   static arrToString(arr: Array<number>) {
         return arr.join(',')
     }
 }
@@ -284,7 +286,7 @@ class calculation {
      * @param {data1,data2,operationMode} 第一个值,第二个值,运算方式
      * @return {datas} 返回被处理后要处理的数值
     */
-    delFNum(data1: number | any, data2: number | any, operationMode: string): number | any {
+   static delFNum(data1: number | any, data2: number | any, operationMode: string): number | any {
         let datas
         if (operationMode == '+') {
             return datas = parseFloat((data1 + data2).toFixed(6));
@@ -306,7 +308,7 @@ class calculation {
      * @param {num,digit,modes} 要处理的数,保留几位(10是一位,100是两位;以此类推),处理数的方式
      * @return {} 返回被处理后要处理的数值
      */
-    format45(num: number | any, digit: number, modes: number): any {
+    static format45(num: number | any, digit: number, modes: number): any {
         if (!num) {
             return null
         } else {
@@ -335,7 +337,7 @@ class calculation {
      * @param {num} 要处理的数
      * @return {num} 返回被处理后要处理的数值
      */
-    negativeTurnjust(num: number) {
+    static negativeTurnjust(num: number) {
         return Math.abs(num)
     }
 }
@@ -352,7 +354,7 @@ class zCheck {
      * @return {str} 返回被处理后原有input的输入内容
      * @usage 在input中 @keyup.native="data绑定的值 = oninput(data绑定的值,小数后几位)"
      */
-    oninput(num: any, limit: number): any {
+    static oninput(num: any, limit: number): any {
         var str = num
         var len1 = str.substr(0, 1)
         var len2 = str.substr(1, 1)
@@ -387,7 +389,7 @@ class zCheck {
      * @param {num} 原有input中的字符串
      * @return {num} 返回被处理后原有input的输入内容
     */
-    positiveInteger(num: any) {
+   static positiveInteger(num: any) {
         if (!(/(^[1-9]\d*$)/.test(num))) {
             num = '';
         } else {
@@ -401,58 +403,58 @@ class zCheck {
 * @effect 操作 - 缓存
 */
 class cache {
-    /**
-     * @range Cookie
-     * @effect 添加Cookie
-     * @param {name,value} 名字,值
-    */
-    addCookie(name: string, value: string): void {
-        var exp = new Date();
-        exp.setTime(exp.getTime() + 60 * 60 * 1000);
-        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
-    }
+//     /**
+//      * @range Cookie
+//      * @effect 添加Cookie
+//      * @param {name,value} 名字,值
+//     */
+//    static addCookie(name: string, value: string): void {
+//         var exp = new Date();
+//         exp.setTime(exp.getTime() + 60 * 60 * 1000);
+//         document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+//     }
 
-    /**
-     * @range Cookie
-     * @effect 获取Cookie
-     * @param {name} 名字
-    */
-    getCookie(name: string): string | null { //获取指定名称的cookie值
-        var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
-        if (arr != null) {
-            return unescape(arr[2]);
-        }
-        return null;
-    }
+//     /**
+//      * @range Cookie
+//      * @effect 获取Cookie
+//      * @param {name} 名字
+//     */
+//    static getCookie(name: string): string | null { //获取指定名称的cookie值
+//         var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+//         if (arr != null) {
+//             return unescape(arr[2]);
+//         }
+//         return null;
+//     }
 
-    /**
-     * @range Cookie
-     * @effect 更改Cookie
-     * @param {name,value} 名字,值
-    */
-    setCookie(name: string, value: string): void {
-        document.cookie = name + '=' + value;
-    }
+//     /**
+//      * @range Cookie
+//      * @effect 更改Cookie
+//      * @param {name,value} 名字,值
+//     */
+//    static setCookie(name: string, value: string): void {
+//         document.cookie = name + '=' + value;
+//     }
 
-    /**
-     * @range Cookie
-     * @effect 删除cookies
-     * @param {name,value} 名字,值
-    */
-    delCookie(name: string): void {
-        var exp = new Date();
-        exp.setTime(exp.getTime() - 60 * 60 * 1000);
-        var cval = this.getCookie(name);
-        if (cval != null)
-            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
-    }
+//     /**
+//      * @range Cookie
+//      * @effect 删除cookies
+//      * @param {name,value} 名字,值
+//     */
+//    static delCookie(name: string): void {
+//         var exp = new Date();
+//         exp.setTime(exp.getTime() - 60 * 60 * 1000);
+//         var cval = this.getCookie(name);
+//         if (cval != null)
+//             document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+//     }
 
     /**
      * @range LocalStorage
      * @effect 添加 / 更改
      * @param {name,value} 名字,值
     */
-    setLocalStorage(name: string, val: any): void {
+   static setLocalStorage(name: string, val: any): void {
         localStorage.setItem(name, val);
     }
 
@@ -461,7 +463,7 @@ class cache {
      * @effect 获取
      * @param {name} 名字
     */
-    getLocalStorage(name: string): void {
+   static getLocalStorage(name: string): void {
         localStorage.getItem(name);
     }
 
@@ -470,7 +472,7 @@ class cache {
      * @effect 删除
      * @param {name} 名字
     */
-    delLocalStorage(name: string): void {
+   static delLocalStorage(name: string): void {
         localStorage.removeItem(name);
     }
 
@@ -479,7 +481,7 @@ class cache {
      * @effect 删除全部
      * @param {name} 名字
     */
-    allDelLocalStorage(): void {
+   static allDelLocalStorage(): void {
         localStorage.clear();
     }
     
@@ -488,7 +490,7 @@ class cache {
      * @effect 添加 / 更改
      * @param {name,value} 名字,值
     */
-    setSessionStorage(name: string, val: any): void {
+   static setSessionStorage(name: string, val: any): void {
         sessionStorage.setItem(name, val);
     }
 
@@ -497,7 +499,7 @@ class cache {
      * @effect 获取
      * @param {name} 名字
     */
-    getSessionStorage(name: string): void {
+   static getSessionStorage(name: string): void {
         sessionStorage.getItem(name);
     }
 
@@ -506,7 +508,7 @@ class cache {
      * @effect 删除
      * @param {name} 名字
     */
-    delSessionStorage(name: string): void {
+   static delSessionStorage(name: string): void {
         sessionStorage.removeItem(name);
     }
 
@@ -515,7 +517,7 @@ class cache {
      * @effect 删除全部
      * @param {name} 名字
     */
-    allDelSessionStorage(): void {
+   static allDelSessionStorage(): void {
         sessionStorage.clear();
     }
 }

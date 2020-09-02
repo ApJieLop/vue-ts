@@ -14,13 +14,16 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class login extends Vue {
-    
+    encapsulationFunction: any;
+    created () {
+      this.encapsulationFunction.Aggregate.log('asssda',2)
+    }
 }
 </script>
   
  <style lang="less" scoped>
-.one {
+// .one {
 
-}
+// }
 </style>
   
